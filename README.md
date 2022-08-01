@@ -1,24 +1,41 @@
-# new_vue
+# mock
 
-## Project setup
-```
-npm install
-```
+模拟数据 本地开发
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## assets
 
-### Compiles and minifies for production
-```
-npm run build
-```
+静态文件目录：包含字体、图标、图片、样式等静态资源
 
-### Lints and fixes files
-```
-npm run lint
-```
+## api
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+请求
+
+## common
+
+公共文件夹：通常来说，它又能被拆分成多个子目录：components、mixins、directives，又或者是单个的文件：functions.ts、helpers.ts、constants.ts、config.ts，亦或者其它。但它们有共同的特点：Common 文件夹下的文件都是在多出被引用的。
+
+## components
+
+### business  base
+
+业务组件  跟组件
+
+## router
+
+路由管理
+
+## static
+
+不会被打包
+
+## store
+
+状态管理
+
+## utils
+
+方法工具
+
+## views
+
+页面
