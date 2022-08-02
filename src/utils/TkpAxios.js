@@ -2,9 +2,9 @@ import axios from 'axios'
 import qs from 'qs'
 import Security from './Security'
 import ContentType from './ContentType'
+import { Toast } from 'vant'
 class TkpAxios {
   constructor(baseUrl = '') {
-    // MessageBox.close()
     this._baseUrl = baseUrl
     /* 主要封装axios，方便放到VUE的原型上，直接调用 */
     axios.interceptors.request.use(
@@ -13,7 +13,7 @@ class TkpAxios {
         return config
       },
       (err) => {
-        // MessageBox.alert('请求超时!')
+        Toast('请求超时!')
         return Promise.resolve(err)
       }
     )
@@ -31,13 +31,13 @@ class TkpAxios {
         if (err.response.status) {
           switch (err.response.status) {
             case 504 || 404:
-              console.log(1)
+              Toast('服务器被吃了⊙﹏⊙∥')
               break
             case 403:
-              console.log(2)
+              Toast('权限不足,请联系管理员!')
               break
             case 401:
-              console.log(3)
+              Toast('您的用户认证失效，请重新登录！')
               Security.deleteJwt()
           }
         }
