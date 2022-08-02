@@ -7,4 +7,4 @@ const address = function () {
   return data
 }
 Mock.setup = { timeout: 1000 }
-Mock.mock('api/address', 'post', address)
+Mock.mock('/my-app/address', 'post', address)

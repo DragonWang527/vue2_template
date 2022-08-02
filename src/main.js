@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './ui'
-require('../mock/mock')
+import 'amfe-flexible'
+// require('../mock/mock')
 Vue.config.productionTip = false
 
 new Vue({

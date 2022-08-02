@@ -13,31 +13,34 @@ class TkpAxios {
         return config
       },
       (err) => {
-        Toast('请求超时!')
+        Toast.fail('请求超时!')
         return Promise.resolve(err)
       }
     )
     axios.interceptors.response.use(
-      (res) => {
+      (response) => {
         //  后台将jwt存放在响应头里
-        // if (res.headers.Authorization) {
+        // if (response.headers.Authorization) {
         //   Security.saveJwt(res.headers.Authorization)
         // }
-        if (res.status && res.status === 200) {
-          return res
+        if (response.status && response.status === 200) {
+          return response
         }
       },
       (err) => {
+        console.log(err.response.status, 'err')
         if (err.response.status) {
           switch (err.response.status) {
-            case 504 || 404:
-              Toast('服务器被吃了⊙﹏⊙∥')
+            case 404:
+            case 500:
+            case 504:
+              Toast.fail('服务器被吃了⊙﹏⊙∥')
               break
             case 403:
-              Toast('权限不足,请联系管理员!')
+              Toast.fail('权限不足,请联系管理员!')
               break
             case 401:
-              Toast('您的用户认证失效，请重新登录！')
+              Toast.fail('您的用户认证失效，请重新登录！')
               Security.deleteJwt()
           }
         }

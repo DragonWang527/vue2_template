@@ -1,5 +1,8 @@
 <template>
-  <div class="" @click="get">1111</div>
+  <div class="home" @click="get">
+    <span class="me">我是</span>
+    <span class="you">你是</span>
+  </div>
 </template>
 
 <script>
@@ -11,12 +14,22 @@ export default {
   components: {},
   methods: {
     get() {
-      apiAddress().then((res) => {
-        console.log(res)
-      })
+      apiAddress()
+        .then((res) => {
+          console.log(res)
+        })
+        .catch(() => {})
     }
   }
 }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.home {
+  color: @green;
+  transform: translateY(30px);
+  .me {
+    font-size: 20px;
+  }
+}
+</style>
