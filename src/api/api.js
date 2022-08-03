@@ -1,5 +1,5 @@
 import TkpAxios from '@/utils/TkpAxios'
-// baseurl
-const domain = '/my-app'
+import Constant from '@/assets/js/constant'
+const domain = Constant.contextPath
 
-export const apiAddress = (params) => new TkpAxios(domain).post('/addres', params).then((res) => res.data)
+export const apiAddress = (params) => new TkpAxios(domain).post('/address', params).then((res) => res.data)

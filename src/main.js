@@ -4,9 +4,15 @@ import router from './router'
 import store from './store'
 import './ui'
 import 'amfe-flexible'
-// require('../mock/mock')
 Vue.config.productionTip = false
-
+console.log(process.env)
+if (process.env.VUE_APP_MODE === 'development') {
+  require('../mock/mock')
+}
+if (process.env.VUE_APP_MODE === 'sit') {
+  const eruda = require('eruda')
+  eruda.init()
+}
 new Vue({
   router,
   store,

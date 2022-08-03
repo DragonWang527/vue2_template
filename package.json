@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --no-module",
+    "build:sit": "vue-cli-service build --mode sit --no-module",
     "lint": "vue-cli-service lint",
-    "dev": "vue-cli-service serve"
+    "dev": "vue-cli-service serve",
+    "dev:sit": "vue-cli-service serve --mode sit"
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "eruda": "^2.5.0",
     "eslint-config-standard": "^17.0.0",
     "mockjs": "^1.1.0",
     "postcss-pxtorem": "^6.0.0",
@@ -44,6 +47,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not dead"
   ]
 }
