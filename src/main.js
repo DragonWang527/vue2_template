@@ -7,7 +7,7 @@ import 'amfe-flexible'
 Vue.config.productionTip = false
 console.log(process.env)
 if (process.env.VUE_APP_MODE === 'development') {
-  require('../mock/mock')
+  require('./mock/mock')
 }
 if (process.env.VUE_APP_MODE === 'sit') {
   const eruda = require('eruda')
